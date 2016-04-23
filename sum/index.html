@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>sums</title>
+</head>
+<body>
+<textarea rows="4" cols="50" title="input" id="trollop"></textarea><br>
+<button onclick="btnClicked();">submit numbers</button>
+<script>
+    var btnClicked=function () {
+        var numbers = document.getElementById("trollop").value;
+        var res = numbers.split("\n");
+        alert(res);
+    }
+</script>
+</body>
+</html>
