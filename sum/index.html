@@ -5,12 +5,21 @@
 </head>
 <body>
 <textarea rows="4" cols="50" title="input" id="trollop"></textarea><br>
-<button onclick="btnClicked();">submit numbers</button>
+<button onclick="btnClicked();" id="total">submit numbers</button>
 <script>
     var btnClicked=function () {
+        var out=0;
         var numbers = document.getElementById("trollop").value;
         var res = numbers.split("\n");
-        alert(res);
+        for (var i=0; i<res.length; i++){
+            var number = parseInt(res[i]);
+            if (!isNaN(number)) {
+                out += number;
+            }
+        }
+        var con=document.getElementById("total");
+        con.innerHTML=out;
+        sleep()
     }
 </script>
 </body>
