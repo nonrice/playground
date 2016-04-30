@@ -6,38 +6,34 @@
 <body>
 <textarea rows="4" cols="50" title="input" id="trollop"></textarea><br>
 <button onclick="btnClicked();" id="total">submit numbers</button>
+<div id="display"></div>
 <script>
     var btnClicked=function () {
-        var odd=0;
-        var even=0;
-        var amount=0;
-        var out=0;
+        var odd = 0;
+        var even = 0;
+        var amount = 0;
+        var out = 0;
         var numbers = document.getElementById("trollop").value;
         var res = numbers.split("\n");
-        for (var i=0; i<res.length; i++){
+        for (var i = 0; i < res.length; i++) {
             var number = parseInt(res[i]);
             if (!isNaN(number)) {
                 out += number;
-                amount=res.length;
-            }else {
+                amount = res.length;
+            } else {
                 amount--;
             }
-            if (number%2==1){
+            if (number % 2 == 1) {
                 odd++;
             }
-            if(number%2==0){
+            if (number % 2 == 0) {
                 even++;
             }
         }
-        var con=document.getElementById("total");
-        alert(odd+" odd");
-        alert(even+" even");
-        alert(amount);
-        con.innerHTML=out;
-        setTimeout(function () {
-                con.innerHTML="submit numbers";
-            }
-        ,3000)
+        var display=document.getElementById("display");
+        display.innerHTML=odd + " odd <br>" + even + " even <br>"
+                + amount + " numbers entered <br>"
+                + out + " are the numbers added up";
     }
 </script>
 </body>
