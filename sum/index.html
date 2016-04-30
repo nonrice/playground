@@ -8,6 +8,9 @@
 <button onclick="btnClicked();" id="total">submit numbers</button>
 <script>
     var btnClicked=function () {
+        var odd=0;
+        var even=0;
+        var amount=0;
         var out=0;
         var numbers = document.getElementById("trollop").value;
         var res = numbers.split("\n");
@@ -15,10 +18,21 @@
             var number = parseInt(res[i]);
             if (!isNaN(number)) {
                 out += number;
+                amount--;
+            }else {
+                amount=res.length;
+            }
+            if (number%2==1){
+                odd++;
+            }
+            if(number/2==0){
+                even++;
             }
         }
         var con=document.getElementById("total");
-        alert(out);
+        alert(odd);
+        alert(even);
+        alert(amount);
         con.innerHTML=out;
         setTimeout(function () {
                 con.innerHTML="submit numbers";
