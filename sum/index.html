@@ -18,20 +18,20 @@
             var number = parseInt(res[i]);
             if (!isNaN(number)) {
                 out += number;
-                amount--;
-            }else {
                 amount=res.length;
+            }else {
+                amount--;
             }
             if (number%2==1){
                 odd++;
             }
-            if(number/2==0){
+            if(number%2==0){
                 even++;
             }
         }
         var con=document.getElementById("total");
-        alert(odd);
-        alert(even);
+        alert(odd+" odd");
+        alert(even+" even");
         alert(amount);
         con.innerHTML=out;
         setTimeout(function () {
