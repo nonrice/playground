@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>questionaire</title>
+</head>
+<body>
+    <form action="questions.html">
+        Mary Rose sat on a pin<br>
+        <input type="radio" name="Q1">Ouch<br>
+        <input type="radio" name="Q1" id="hoot">Mary Rose<br>
+        <input type="radio" name="Q1">Burst her piles<br>
+        <input type="radio" name="Q1">Ahahahahaha!<br><br>
+
+        Can a match box?<br>
+        <input type="radio" name="Q2">Probably<br>
+        <input type="radio" name="Q2">Grammar Error!<br>
+        <input type="radio" name="Q2" id="trollop">No, But tin can.<br>
+        <input type="radio" name="Q2">Yes, one beat John Cena<br>
+
+        <button onclick="check();">Check Answers</button>
+    </form>
+    <script>
+        var correct=0;
+        var check=function () {
+            if(document.getElementById("hoot").checked) {
+                correct++;
+                if(document.getElementById("trollop").checked){
+                    alert("You got all answers correct!");
+                }else {
+                    
+                }
+            }
+        }
+    </script>
+</body>
+</html>
