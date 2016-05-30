@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>flipper</title>
+</head>
+<body>
+<input type="number" id="txt">
+<button id="flip">flip</button>
+<br>
+
+<div id="number"></div>
+<script>
+    function flip(number) {
+        var output = [];
+        var sNumber = number.toString();
+        var sn = sNumber.length;
+        for (var i = 0; i < sn; i++) {
+            output.push(sNumber.charAt(i));
+        }
+
+        for (i = 0; i < Math.floor(output.length / 2); i++) {
+            var first = sn - (i + 1);
+            var last = i;
+            var temp = output[first];
+            output[first] = output[last];
+            output[last] = temp;
+        }
+
+        return output.join("");
+    }
+    document.getElementById("flip").addEventListener("click", function(){
+        var number = document.getElementById("txt").value;
+        document.getElementById("number").innerHTML = flip(number);
+    });
+</script>
+</body>
+</html>
