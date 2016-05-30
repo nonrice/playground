@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>selection</title>
+    <link type="text/css" rel="stylesheet" href="stylesheet2.css" />
+</head>
+<body>
+    <form action="selection.html">
+        <p>select one, then click proceed.</p>
+        <select title="select" id="goto">
+            <option value="a" id="john">john files</option>
+            <option value="b" id="everette">everette files</option>
+            <option value="c" id="slither.io">slitherio</option>
+        </select><br><br>
+        <button onclick="see();">proceed</button>
+    </form>
+    <script>
+        var see=function () {
+            var selected = document.getElementById("goto");
+            if (selected.value == "a") {
+                window.open("johnFiles.html");
+            }
+            if (selected.value == "b") {
+                window.open("everetteFiles.html")
+            }
+            if (selected.value === "c"){
+                window.open("slither.io");
+            }
+        }
+    </script>
+</body>
+</html>

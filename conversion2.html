@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>converter</title>
+</head>
+<body>
+<input type="number" id="f" placeholder="Fahrenheit">
+=
+<input type="number" id="c" placeholder="Celsius">
+<script>
+    var c = document.getElementById("c");
+    var f = document.getElementById("f");
+    function c2f() {
+        f.value = c.value * 9 / 5 + 32;
+    }
+    function f2c() {
+        c.value = (f.value - 32) * 5 / 9;
+    }
+    c.addEventListener("keyup", c2f);
+    f.addEventListener("keyup", f2c);
+</script>
+</body>
+</html>

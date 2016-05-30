@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>calendar</title>
+</head>
+<body onload=>
+    <div id="day"></div>
+    <div id="time"></div>
+    <script>
+        function padZero(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function displayCalendar() {
+            var weekdays = [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday"
+            ];
+
+            var today = new Date();
+            document.getElementById("day").innerHTML = "today is: " + weekdays[today.getDay()] + "<br>";
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            document.getElementById('time').innerHTML = "the current time is: "+padZero(h) + ":" + padZero(m) + ":" + padZero(s);
+        }
+        setInterval(displayCalendar, 500);
+        displayCalendar();
+    </script>
+</body>
+</html>

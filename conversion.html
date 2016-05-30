@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>converter</title>
+</head>
+<body>
+<input type="number" id="degrees">
+<select id="temperatureType1">
+    <option value="Celsius">Celsius</option>
+    <option value="Fahrenheit">Fahrenheit</option>
+</select> to
+<select id="temperatureType2">
+    <option value="Celsius">Celsius</option>
+    <option value="Fahrenheit">Fahrenheit</option>
+</select>
+<button id="converterButton">convert</button>
+<br>
+
+<div id="temp"></div>
+<script>
+    function convert() {
+        var degrees = document.getElementById("degrees").value;
+        var output = degrees;
+        var type1 = document.getElementById("temperatureType1").value;
+        var type2 = document.getElementById("temperatureType2").value;
+        if (type1 == "Fahrenheit" && type2 == "Celsius") {
+            output = (degrees - 32) * 5 / 9;
+        } else if (type1 == "Celsius" && type2 == "Fahrenheit") {
+            output = degrees * 9 / 5 + 32;
+        }
+        document.getElementById("temp").innerHTML = "the converted temperature is: " + output;
+    }
+
+    document.getElementById("converterButton").addEventListener("click", convert);
+</script>
+</body>
+</html>

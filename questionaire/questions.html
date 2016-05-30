@@ -5,31 +5,154 @@
 </head>
 <body>
     <form action="questions.html">
-        Mary Rose sat on a pin<br>
-        <input type="radio" name="Q1">Ouch<br>
-        <input type="radio" name="Q1" id="hoot">Mary Rose<br>
-        <input type="radio" name="Q1">Burst her piles<br>
-        <input type="radio" name="Q1">Ahahahahaha!<br><br>
-
-        Can a match box?<br>
-        <input type="radio" name="Q2">Probably<br>
-        <input type="radio" name="Q2">Grammar Error!<br>
-        <input type="radio" name="Q2" id="trollop">No, But tin can.<br>
-        <input type="radio" name="Q2">Yes, one beat John Cena<br>
-
-        <button onclick="check();">Check Answers</button>
+        <div class="Q1">
+            Mary Rose sat on a pin<br>
+            <input type="radio" name="Q1">Ouch<br>
+            <input type="radio" name="Q1" id="hoot">Mary Rose<br>
+            <input type="radio" name="Q1">CRUEL!<br>
+            <input type="radio" name="Q1">Ahahahahaha!<br><br>
+        </div>
+        <div class="Q2">
+            Can a match box?<br>
+            <input type="radio" name="Q2">Probably<br>
+            <input type="radio" name="Q2">Grammar Error!<br>
+            <input type="radio" name="Q2" id="trollop">No, But tin can.<br>
+            <input type="radio" name="Q2">Yes, one beat John Cena<br><br>
+        </div>
+        <div class="Q3">
+            In a plane crash every single person died. But two people survived. How?<br>
+            <input type="radio" name="Q3">they had parachutes<br>
+            <input type="radio" name="Q3">they weren't on the plane<br>
+            <input type="radio" name="Q3" id="american">they were married<br>
+            <input type="radio" name="Q3">The plane crashed, but it wasn't damaged<br><br>
+        </div>
+        <div class="Q4">
+            what comes next: 1, 11, 21, 1211, 111221, 312211, _____<br>
+            <input type="radio" name="Q4">111332<br>
+            <input type="radio" name="Q4" id="ta-da">13112221<br>
+            <input type="radio" name="Q4">24316655<br>
+            <input type="radio" name="Q4">132321323122<br><br>
+        </div>
+        <div class="Q5">
+            I live in a one-story house. Everything that's in it is <strong>red</strong>. What color are the stairs?<br>
+            <input type="radio" name="Q5">purple<br>
+            <input type="radio" name="Q5">red<br>
+            <input type="radio" name="Q5">rainbow!!!<br>
+            <input type="radio" name="Q5" id="carrot">what stairs?<br><br>
+        </div>
+        <div class="Q6">
+            donkey?<br>
+            <input type="radio" name="Q6" id="honk">I'm not done<br>
+            <input type="radio" name="Q6">should I pick it up?<br>
+            <input type="radio" name="Q6">yee-haw<br>
+            <input type="radio" name="Q6">elephant<br><br>
+        </div>
+        <div class="Q7">
+            what is the periodic table symbol for gold?<br>
+            <input type="radio" name="Q7">HG<br>
+            <input type="radio" name="Q7">FE<br>
+            <input type="radio" name="Q7">TI<br>
+            <input type="radio" name="Q7" id="tadpole">AU<br><br>
+        </div>
+        <div class="Q8" id="abcd">
+            how heavy are you?<br>
+            <input type="radio" name="Q8" id="a">0-60 pounds<br>
+            <input type="radio" name="Q8" id="b">61-100 pounds<br>
+            <input type="radio" name="Q8" id="c">101-150 pounds<br>
+            <input type="radio" name="Q8" id="d">151+ pounds<br>
+        </div>
+        <div class="Q9" id="efgh">
+            how old are you?<br>
+            <input type="radio" name="Q9" id="e">0-3 years<br>
+            <input type="radio" name="Q9" id="f">4-20 years<br>
+            <input type="radio" name="Q9" id="g">21-50 years<br>
+            <input type="radio" name="Q9" id="h"> 50+ years<br>
+        </div>
+        <div class="Q10" id="ijkl">
+            what is your total height?<br>
+            <input type="radio" name="Q10" id="i">0-36 inches<br>
+            <input type="radio" name="Q10" id="j">37-50 inches<br>
+            <input type="radio" name="Q10" id="k">51-60 inches<br>
+            <input type="radio" name="Q10" id="l">61+ inches<br>
+        </div>
+        full name:<input type="text" id="name">
+        <button onclick="check();">submit</button>
     </form>
     <script>
-        var correct=0;
         var check=function () {
-            if(document.getElementById("hoot").checked) {
+            var correct=0;
+            if (document.getElementById("hoot").checked){
                 correct++;
-                if(document.getElementById("trollop").checked){
-                    alert("You got all answers correct!");
-                }else {
-                    
-                }
             }
+            if (document.getElementById("trollop").checked){
+                correct++;
+            }
+            if (document.getElementById("american").checked){
+                correct++;
+            }
+            if (document.getElementById("ta-da").checked){
+                correct++;
+            }
+            if (document.getElementById("carrot").checked){
+                correct++;
+            }
+            if (document.getElementById("honk").checked){
+                correct++;
+            }
+            if (document.getElementById("tadpole").checked){
+                correct++;
+            }
+            var weight=0;
+            var age=0;
+            var height=0;
+            if (document.getElementById("a").checked){
+                weight="0-60";
+            }
+            if (document.getElementById("b").checked){
+                weight="61-100";
+            }
+            if (document.getElementById("c").checked){
+                weight="101-150";
+            }
+            if (document.getElementById("d").checked){
+                weight="151+";
+            }
+            if (document.getElementById("e").checked){
+                age="0-3";
+            }
+            if (document.getElementById("f").checked){
+                age="4-20";
+            }
+            if (document.getElementById("g").checked){
+                age="21-50";
+            }
+            if (document.getElementById("h").checked){
+                age="51+"
+            }
+            if (document.getElementById("i").checked){
+                height="0-36 inches";
+            }
+            if (document.getElementById("j").checked){
+                height="37-50 inches"
+            }
+            if (document.getElementById("k").checked){
+                height="51-60 inches"
+            }
+            if (document.getElementById("l").checked){
+                height="60+ inches";
+            }
+            var me=document.getElementById("name").value;
+
+
+
+
+            //alert("you got"+" "+correct+"/7 answers correct!");
+            var smartness=correct*14.2857143-0.00000010000001;
+            if (smartness===-1.0000001e-7){
+                smartness=0;
+            }
+            var about=me+" is "+height+" tall, "+age+" years old and "+me+"'s weight is "+weight+" pounds "+me+"'s smartness is "+smartness+" percent out of 100 percent";
+            alert(about);
         }
     </script>
 </body>

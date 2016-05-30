@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <div id="target" style="position:absolute;left:0;top:0;">*</div>
+    <script>
+        document.onkeydown = checkKey;
+        var direction, y = 0, left = 0, target = document.getElementById("target");
+        function checkKey(e) {
+            e = e || window.event;
+            switch (e.keyCode) {
+                case 38: // up
+                    direction = "up";
+                    break;
+                case 40: // down
+                    direction = "down";
+                    break;
+                case 37: // left
+                    direction = "left";
+                    break;
+                case 39: // right
+                    direction = "right";
+                    break;
+            }
+        }
+        setInterval(function(){
+            switch(direction) {
+                case "up":
+                    y--;
+                    break;
+                case "down":
+                    y++;
+                    break;
+                case "left":
+                    left--;
+                    break;
+                case "right":
+                    left++;
+                    break;
+            }
+            target.style.left = "" + left * 5 + "px";
+            target.style.top = "" + y * 5 + "px";
+        }, 100);
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>warning</title>
+</head>
+<body>
+    <h1>Warning</h1>
+    <p>you are accessing a secret folder. Type the password, then click the button to proceed.</p>
+    <input type="password" title="Secret" id="lock">
+    <button onclick="check();">proceed</button>
+    <script>
+        var check=function () {
+            var what = document.getElementById("lock").value;
+            if (what === "antidisestablishmentarianism") {
+                window.open("selection.html");
+            }
+            else {
+                alert("a problem occurred. check what you have typed in and try again.")
+            }
+        }
+    </script>
+</body>
+</html>
