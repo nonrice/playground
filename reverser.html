@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <input id="words" type="text">
+    <button onclick="reverse();">click me!</button>
+</head>
+<body>
+<script>
+    function reverse() {
+        var i = 0;
+        var txt = document.getElementById("words").value;
+        var output = txt.split(" ");
+        for (i = 0; i < Math.floor(output.length / 2); i++) {
+            var first = output.length - (i + 1);
+            var last = i;
+            var temp = output[first];
+            output[first] = output[last];
+            output[last] = temp;
+        }
+        alert(output.join(" "));
+    }
+</script>
+</body>
+</html>
