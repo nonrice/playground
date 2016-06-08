@@ -5,32 +5,42 @@
     <title>calculator</title>
 </head>
 <body>
-    <input type="number" id="inputA">
-    <select title="select" id="selection">
-        <option value="multiply">*</option>
-        <option value="divide">/</option>
-    </select>
-    <input type="number" id="inputB">
-    <button id="calculate">calculate</button><br>
-    <div id="result"></div>
-    <script>
-        function calculate() {
-            var a=document.getElementById("inputA").value;
-            var b=document.getElementById("inputB").value;
-            var selections=document.getElementById("selection");
-            var result = 0;
-            switch (document.getElementById("selection").value) {
-                case "multiply":
-                    result = a*b;
-                    break;
-                case "divide":
-                    result = a/b;
-                    break;
-            }
-            document.getElementById("result").innerHTML = "The result is " + result;
-        }
+<input type="number" id="inputA">
+<select title="select" id="selection">
+    <option value="multiply">*</option>
+    <option value="divide">/</option>
+    <option value="add">+</option>
+    <option value="minus">-</option>
+</select>
+<input type="number" id="inputB">
+<button id="calculate">calculate</button>
+<br>
 
-        document.getElementById("calculate").addEventListener("click", calculate);
-    </script>
+<div id="result"></div>
+<script>
+    function calculate() {
+        var a = document.getElementById("inputA").value;
+        var b = document.getElementById("inputB").value;
+        var selections = document.getElementById("selection");
+        var result = 0;
+        switch (document.getElementById("selection").value) {
+            case "multiply":
+                result = a * b;
+                break;
+            case "divide":
+                result = a / b;
+                break;
+            case "add":
+                result = a + b;
+                break;
+            case "minus":
+                result = a - b;
+                break;
+        }
+        document.getElementById("result").innerHTML = "The result is " + result;
+    }
+
+    document.getElementById("calculate").addEventListener("click", calculate);
+</script>
 </body>
 </html>

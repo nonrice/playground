@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Number guessing game</title>
+</head>
+<body>
+<button onclick="toBig();">too big</button>
+<button onclick="toSmall();">too small</button>
+<button onclick="correct();">correct</button>
+<div id="guess"></div>
+<script>
+    var show = document.getElementById("guess");
+    alert("Hi, I am Dave, your computer partner that will try to guess your number that you will be told to think of");
+    alert("Please think of a number between 1-100. Click OK when you are ready. When Dave takes a guess at your number, if it's bigger than the number your thinking of, click: 'to big'. If it is to small click: 'too small'. If it is correct, click: 'correct'");
+    var min = 1;
+    var max = 100;
+    var gotWrong = 0;
+    var computerGuess = Math.floor((min + max) / 2);
+    show.innerHTML = computerGuess + "?";
+    function toBig() {
+        gotWrong++;
+        max = computerGuess - 1;
+        computerGuess = Math.floor((min + max) / 2);
+        var show = document.getElementById("guess");
+        show.innerHTML = computerGuess + "?";
+    }
+    function toSmall() {
+        gotWrong++;
+        min = computerGuess + 1;
+        computerGuess = Math.floor((min + max) / 2);
+        var show = document.getElementById("guess");
+        show.innerHTML = computerGuess + "?";
+    }
+    function correct() {
+        var show = document.getElementById("guess");
+        show.innerHTML = "I took " + gotWrong + " guesses to guess your number";
+    }
+</script>
+</body>
+</html>

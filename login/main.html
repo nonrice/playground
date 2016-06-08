@@ -2,48 +2,57 @@
 <html lang="en">
 <head>
     <title>Login</title>
+
     <h1>login</h1>
 </head>
 <body>
-    <link type="text/css" rel="stylesheet" href="stylesheet.css" />
-    <input title="login" id="foo" type="password">
-    <button onclick="login();" id="lk">enter</button>
-    <script>
-        function login() {
-            var txt=document.getElementById("foo").value;
-            if (txt==="ferrari"){
-                window.location="http://static.corporate.ferrari.com/sites/ferrari15ipo/files/home_slide_images/ferrari_immagine_4_10_1_6.jpg";
-            }
-            else if(txt==="quiz"){
-                window.location="http://theimpossiblequiz.org.uk/";
-            }
-            else if(txt==="quiz answers"){
-                window.location="https://sites.google.com/site/punblockedgames/the-impossible-quiz/the-impossible-quiz-awnsers";
-            }
-            else if(txt==="secret folder"){
-                window.location="warning.html";
-            }
-            else if(txt==="buttonColor"){
-                var color=prompt("please enter a color");
-                var change=document.getElementById("lk");
-                change.style.background=color;
-            }
-            else {
-                if (txt===""){
-                    alert("Please enter some text");
-                }else {
-                    alert("No searches match your suggestion");
-                }
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+<input title="login" id="foo" type="text">
+<button onclick="login();" id="lk">enter</button>
+<script>
+    function login() {
+        var txt = document.getElementById("foo").value;
+        if (txt === "ferrari") {
+            window.location = "http://static.corporate.ferrari.com/sites/ferrari15ipo/files/home_slide_images/ferrari_immagine_4_10_1_6.jpg";
+        }
+        else if (txt === "quiz") {
+            window.location = "http://theimpossiblequiz.org.uk/";
+        }
+        else if (txt === "quiz answers") {
+            window.location = "https://sites.google.com/site/punblockedgames/the-impossible-quiz/the-impossible-quiz-awnsers";
+        }
+        else if (txt === "secret folder") {
+            window.location = "warning.html";
+        }
+        else if (txt === "buttonColor") {
+            var color = prompt("please enter a color");
+            var change = document.getElementById("lk");
+            change.style.background = color;
+        }
+        else if (txt === "hexadecimal colors") {
+            var search = prompt("please enter a hexadecimal color");
+            window.open("http://www.colorhexa.com/" + search);
+        }
+        else if (txt = "search google") {
+            var place = prompt("please enter a search name");
+            window.open("https://www.google.com.pg/#q=" + place);
+        }
+        else {
+            if (txt === "") {
+                alert("Please enter some text");
+            } else {
+                alert("No searches match your suggestion");
             }
         }
-        document.getElementById('foo').onkeypress = function(e){
-            if (!e) e = window.event;
-            var keyCode = e.keyCode || e.which;
-            if (keyCode == '13'){
-                login();
-                return false;
-            }
-        };
-    </script>
+    }
+    document.getElementById('foo').onkeypress = function (e) {
+        if (!e) e = window.event;
+        var keyCode = e.keyCode || e.which;
+        if (keyCode == '13') {
+            login();
+            return false;
+        }
+    };
+</script>
 </body>
 </html>

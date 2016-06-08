@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        button{
+            border-radius: 0;
+            border-left: 1px solid #EEEEEE;
+            border-right: 1px solid #EEEEEE;
+            border-bottom: none;
+            border-top: none;
+            background-color: #ffffff;
+            font-family: sans-serif, serif;
+        }
+        button:hover{
+            background-color: #EEEEEE;
+        }
+        .type{
+            width: 63px;
+        }
+        #submit{
+            width: 131px;
+        }
+        input{
+            height: 30px;
+        }
+        *{
+            ;
+        }
+    </style>
+</head>
+<body>
+    <form action="main.html">
+        <button class="type" id="SignUp">Sign Up</button>
+        <button class="type" id="LogIn">Log In</button><br>
+        <input type="text" placeholder="username" id="username"><br>
+        <input type="password" placeholder="password" id="password"><br>
+        <button id="submit">enter</button>
+    </form>
+    <script>
+        var pass=[];
+        var user=[];
+        function signUp(){
+            var password=document.getElementById("password").value;
+            var username=document.getElementById("username").value;
+            pass.push(password);
+            user.push(username);
+        }
+        document.getElementById("submit").addEventListener("click", check);
+    </script>
+</body>
+</html>
