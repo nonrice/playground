@@ -8,7 +8,8 @@
 <body>
 <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 <input title="login" id="foo" type="text">
-<button onclick="login();" id="lk">enter</button>
+<button onclick="login();" id="lk">enter</button><br>
+<div id="time"></div>
 <script>
     function login() {
         var txt = document.getElementById("foo").value;
@@ -37,10 +38,11 @@
             var place = prompt("please enter a search name");
             window.open("https://www.google.com.pg/#q=" + place);
         }
-        else if (txt ===q    "definition") {
+        else if (txt === "definition") {
             var locate = prompt("please enter a word");
             window.open("http://www.dictionary.com/browse/" + locate + "?s=t");
         }
+        
         else {
             if (txt === "") {
                 alert("Please enter some text");
