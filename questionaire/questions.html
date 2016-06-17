@@ -79,6 +79,7 @@
         <button onclick="check();">submit</button>
     </form>
     <script>
+        var results=[];
         var check=function () {
             var correct=0;
             if (document.getElementById("hoot").checked){
@@ -145,8 +146,6 @@
 
 
 
-
-            //alert("you got"+" "+correct+"/7 answers correct!");
             var smartness=correct*14.2857143-0.00000010000001;
             if (smartness===-1.0000001e-7){
                 smartness=0;
