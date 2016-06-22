@@ -5,22 +5,131 @@
     <title>Calculator</title>
 </head>
 <body>
-    <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
-    <input type="text" id="number"><br>
-    <div class="buttons-keypad">
-        <button id="1">1</button>
-        <button id="2">2</button>
-        <button id="3">3</button>
-    </div>
-    <div class="buttons-keypad">
-        <button id="4">4</button>
-        <button id="5">5</button>
-        <button id="6">6</button>
-    </div>
-    <div class="buttons-keypad">
-        <button id="7">7</button>
-        <button id="8">8</button>
-        <button id="9">9</button>
-    </div>
+<link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+<div class="buttons-keypad">
+    <input type="number" id="display">
+    <button id="add" data-value="+">+</button>
+</div>
+<div class="buttons-keypad">
+    <button id="1" data-value="1">1</button>
+    <button id="2" data-value="2">2</button>
+    <button id="3" data-value="3">3</button>
+    <button id="subtract" data-value="-">-</button>
+</div>
+<div class="buttons-keypad">
+    <button id="4" data-value="4">4</button>
+    <button id="5" data-value="5">5</button>
+    <button id="6" data-value="6">6</button>
+    <button id="multiply" data-value="*">*</button>
+</div>
+<div class="buttons-keypad">
+    <button id="7" data-value="7">7</button>
+    <button id="8" data-value="8">8</button>
+    <button id="9" data-value="9">9</button>
+    <button id="divide" data-value="/">/</button>
+</div>
+<div class="buttons-keypad">
+    <button id="0" data-value="0">0</button>
+    <button id="clear">C</button>
+    <button id="equals">=</button>
+</div>
+<script>
+    var numbers = 0;
+    var numbersEntered = [];
+    var show = "";
+    //    function check() {
+    //        if (numbers > 2) {
+    //            switch (operator) {
+    //                case "+":
+    //                    document.getElementById("display").value = a + b;
+    //                    break;
+    //                case "-":
+    //                    document.getElementById("display").value = a - b;
+    //                    break;
+    //                case "*":
+    //                    document.getElementById("display").value = a * b;
+    //                    break;
+    //                case "/":
+    //                    document.getElementById("display").value = a / b;
+    //                    break;
+    //            }
+    //        }
+    function digitClicked(e) {
+        show = e.target.dataset.value;
+        numbersEntered.push(show);
+        document.getElementById("display").value = numbersEntered.join("");
+    }
+
+    function CLEAR() {
+        document.getElementById("display").value = "";
+        numbersEntered = [];
+    }
+
+    var a = 0;
+    var operator = "";
+
+    function operatorClicked(e) {
+        numbers++;
+        a = parseInt(numbersEntered.join(""));
+        operator = e.target.dataset.value;
+        numbersEntered = [];
+        document.getElementById("display").value = "";
+    }
+
+    var operations = {
+        "+": function (a, b) {
+            return a + b;
+        },
+        "-": function (a, b) {
+            return a - b;
+        },
+        "*": function (a, b) {
+            return a * b;
+        },
+        "/": function (a, b) {
+            return a / b;
+        }
+    };
+
+    function equals() {
+        var b = parseInt(numbersEntered.join(""));
+        var op = operations[operator];
+        document.getElementById("display").value = op(a, b);
+        a = parseInt(document.getElementById("display").value);
+        a = null;
+        b = null;
+        numbersEntered=[];
+//            switch (operator) {
+//                case "+":
+//                    document.getElementById("display").value = a + b;
+//                    a=parseInt(document.getElementById("display").value);
+//                    break;
+//                case "-":
+//                    document.getElementById("display").value = a - b;
+//                    a=parseInt(document.getElementById("display").value);
+//                    break;
+//                case "*":
+//                    document.getElementById("display").value = a * b;
+//                    a=parseInt(document.getElementById("display").value);
+//                    break;
+//                case "/":
+//                    document.getElementById("display").value = a / b;
+//                    a=parseInt(document.getElementById("display").value);
+//                    break;
+//            }
+    }
+
+    for (var i = 0; i <= 9; i++) {
+        document.getElementById("" + i).addEventListener("click", digitClicked);
+    }
+
+    var operators = ["add", "subtract", "multiply", "divide"];
+    for (i = 0; i < 4; i++) {
+        document.getElementById(operators[i]).addEventListener("click", operatorClicked);
+    }
+
+    document.getElementById("clear").addEventListener("click", CLEAR);
+    document.getElementById("equals").addEventListener("click", equals);
+</script>
 </body>
 </html>

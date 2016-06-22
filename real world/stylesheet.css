@@ -3,14 +3,23 @@ button{
     width: 41px;
     background-color: #CCCCCC;
     border: 1px solid #888888;
+    font-size: 20px;
+    display: inline;
 }
 button:hover{
     background-color: #BBBBBB;
 }
+button:active {
+    background-color: burlywood;
+}
 input{
     height: 30px;
-    width: ;
+    width: 126px;
     border-radius: 5px;
     border: 1px solid #888888;
-    margin: 3px 3px 3px 0;
+    margin: 3px 1px 3px 0;
+    font-size: 20px;
+}
+#clear{
+    width: 86px;
 }

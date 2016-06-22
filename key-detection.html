@@ -4,45 +4,58 @@
     <title>Title</title>
 </head>
 <body>
-    <div id="target" style="position:absolute;left:0;top:0;">*</div>
-    <script>
-        document.onkeydown = checkKey;
-        var direction, y = 0, left = 0, target = document.getElementById("target");
-        function checkKey(e) {
-            e = e || window.event;
-            switch (e.keyCode) {
-                case 38: // up
-                    direction = "up";
-                    break;
-                case 40: // down
-                    direction = "down";
-                    break;
-                case 37: // left
-                    direction = "left";
-                    break;
-                case 39: // right
-                    direction = "right";
-                    break;
-            }
+<style>
+    img {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        ''filter: FlipH;
+        -ms-filter: "FlipH";
+    }
+</style>
+<div id="target" style="position:absolute;left:0;top:0;">
+    <img src="data:image/png;base64,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"
+         alt="" height="50" width="50">
+</div>
+<script>
+    document.onkeydown = checkKey;
+    var direction, y = 0, left = 0, target = document.getElementById("target");
+    function checkKey(e) {
+        e = e || window.event;
+        switch (e.keyCode) {
+            case 38: // up
+                direction = "up";
+                break;
+            case 40: // down
+                direction = "down";
+                break;
+            case 37: // left
+                direction = "left";
+                break;
+            case 39: // right
+                direction = "right";
+                break;
         }
-        setInterval(function(){
-            switch(direction) {
-                case "up":
-                    y--;
-                    break;
-                case "down":
-                    y++;
-                    break;
-                case "left":
-                    left--;
-                    break;
-                case "right":
-                    left++;
-                    break;
-            }
-            target.style.left = "" + left * 5 + "px";
-            target.style.top = "" + y * 5 + "px";
-        }, 100);
-    </script>
+    }
+    setInterval(function () {
+        switch (direction) {
+            case "up":
+                y--;
+                break;
+            case "down":
+                y++;
+                break;
+            case "left":
+                left--;
+                break;
+            case "right":
+                left++;
+                break;
+        }
+        target.style.left = "" + left * 5 + "px";
+        target.style.top = "" + y * 5 + "px";
+    }, 100);
+</script>
 </body>
 </html>

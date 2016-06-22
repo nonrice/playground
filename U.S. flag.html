@@ -5,6 +5,53 @@
     <title></title>
 </head>
 <body>
+<canvas height="300" width="570" id="drawing" style="border: 1px solid #000000"></canvas>
+<script>
+    var ctx = document.getElementById("drawing").getContext("2d");
+    ctx.fillStyle = "#FFFFFF";
+    ctx.fillRect(0, 0, 570, 300);
+    ctx.fill();
+    var height = 300;
+    var width = 570;
+    ctx.fillStyle = "red";
+    var stripeHeight = height / 13;
+    ctx.fillRect(0, 0, width, stripeHeight);
+    for (var i = 0; i <= 6; i++) {
+        var y = i * 2;
+        ctx.fillRect(0, y * stripeHeight, width, stripeHeight);
+    }
+    ctx.fill();
+    ctx.fillStyle = "#182254";
+    ctx.fillRect(0, 0, 228, 162);
+    ctx.fill();
 
+    ctx.fillStyle = "#002654";
+    ctx.fillRect(0, 0, 0.4 * width, 7 * stripeHeight);
+
+    ctx.fillStyle = "white";
+
+    function drawStar(ctx, x, y, r) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.translate(x, y);
+        ctx.moveTo(0,0-r);
+        for (var i = 0; i < 5; i++) {
+            ctx.rotate(Math.PI / 5);
+            ctx.lineTo(0, -r*0.4);
+            ctx.rotate(Math.PI / 5);
+            ctx.lineTo(0, -r);
+        }
+        ctx.fill();
+        ctx.restore();
+    }
+
+    for (i = 1; i <= 9; i++) {
+        for (var j = 1; j <= 11; j++) {
+            if ((i + j) % 2 == 0) {
+                drawStar(ctx, j * 19, i * 16, 10);
+            }
+        }
+    }
+</script>
 </body>
 </html>

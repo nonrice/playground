@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+<canvas height="570" width="570" id="painting"></canvas>
+<script>
+    var ctx = document.getElementById("painting").getContext("2d");
+    function line(ctx, startX, startY, endX, endY, color, width) {
+        ctx.strokeStyle = color;
+        ctx.beginPath();
+        ctx.moveTo(startX, startY);
+        ctx.lineTo(endX, endY);
+        ctx.lineWidth = width;
+        ctx.stroke();
+    }
+    //example: Creeper head
+    line(ctx, 0, 0, 570, 570, "#00FF01", 805);//fills canvas
+    line(ctx, 70, 140, 220, 140, "#000001", 150);//draws left eye
+    line(ctx, 350, 140, 500, 140, "#000001", 150);//draws right eye
+    line(ctx, 220, 290, 350, 290, "#000001", 150);//draws nose
+    line(ctx, 150, 350, 410, 350, "#000001", 120);//draws second part of nose
+    line(ctx, 120, 390, 230, 390, "#000001", 201);//draws third part of nose
+    line(ctx, 340, 390, 450, 390, "#000001", 201);//draws fourth part of nose
+</script>
+</body>
+</html>
