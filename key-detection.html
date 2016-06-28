@@ -30,33 +30,35 @@
     }
 </style>
 <div id="target" style="position:absolute;left:0;top:0;">
-    <img id="pacman" src="http://media.cheggcdn.com/media/142/14236f0f-5f9f-4628-b70a-f8c160f62cd1/phpeNRf4x.png"
-         alt="" height="50" width="50">
+    <img id="pacman" src="http://media.cheggcdn.com/media/142/14236f0f-5f9f-4628-b70a-f8c160f62cd1/phpeNRf4x.png" alt=""
+         height="50" width="50">
 </div>
 <div id="arrow" style="position:absolute;left:1220px;top:0;">
-    <img id="ghost"
-         src="http://vignette1.wikia.nocookie.net/pacman/images/f/f1/Inkyyghost.png/revision/latest?cb=20090919170243"
-         alt="" height="50" width="50">
+    <img id="ghost" src="http://worldartsme.com/images/bull-face-clipart-1.jpg" alt="" height="50" width="50">
+</div>
+<div style="position:absolute;left:1220px;top:0;">
+    <img src="http://www.ikea.com/PIAimages/0256310_PE400186_S5.JPG" height="50" width="50">
 </div>
 <script>
     document.onkeydown = checkKey;
     var pacman = document.getElementById("pacman");
     var direction, y = 0, left = 0, target = document.getElementById("target");
-    var gDirection, gY = 0, gLeft = 1220, ghost = document.getElementById("ghost");
+    var gY = 0, gLeft = 1220, arrow = document.getElementById("arrow");
+    var alertDisplay = false;
     function checkKey(e) {
         e = e || window.event;
         switch (e.keyCode) {
             case 38: // up
                 direction = "up";
-                pacman.className = "pacman-up";
+                pacman.className = "char-up";
                 break;
             case 40: // down
                 direction = "down";
-                pacman.className = "pacman-down";
+                pacman.className = "char-down";
                 break;
             case 37: // left
                 direction = "left";
-                pacman.className = "pacman-left";
+                pacman.className = "char-left";
                 break;
             case 39: // right
                 direction = "right";
@@ -83,28 +85,54 @@
         if (left < 0) {
             left = 0;
             direction = "right";
-            pacman.className = "pacman-right";
+            pacman.className = "char-right";
         }
         if (y < 0) {
             y = 0;
             direction = "down";
-            pacman.className = "pacman-down";
+            pacman.className = "char-down";
         }
         if (left * 5 + 55 > window.innerWidth) {
             left = (window.innerWidth - 55) / 5;
             direction = "left";
-            pacman.className = "pacman-left";
+            pacman.className = "char-left";
         }
         if (y * 5 + 55 > window.innerHeight) {
             y = (window.innerHeight - 55) / 5;
             direction = "up";
-            pacman.className = "pacman-up";
+            pacman.className = "char-up";
         }
         if (gY > y) {
-            gDirection = "down";
+            gY--;
+            arrow.style.top = "" + gY * 4.9 + "px";
         }
         if (gY < y) {
-            gDirection = "up";
+            gY++;
+            arrow.style.top = "" + gY * 4.9 + "px";
+        }
+        if (gLeft > left) {
+            gLeft--;
+            arrow.style.left = "" + gLeft * 4.9 + "px";
+        }
+        if (gLeft < left) {
+            gLeft++;
+            arrow.style.left = "" + gLeft * 4.9 + "px";
+        }
+        if (gLeft < 0) {
+            gLeft = 0;
+            direction = "right";
+        }
+        if (gLeft * 5 + 55 > window.innerWidth) {
+            gLeft = (window.innerWidth - 55) / 5;
+            direction = "left";
+        }
+        if (gLeft == left && gY == y) {
+            alertDisplay=true;
+            target.style.opacity = 0.0;
+        }
+        if (!alertDisplay) {
+            alert("game over!");
+            alertDisplay = true;
         }
         target.style.left = "" + left * 5 + "px";
         target.style.top = "" + y * 5 + "px";
