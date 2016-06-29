@@ -2,9 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
 </head>
 <body>
-
+<script>
+    function qa(question, answer){
+        var input=prompt(question);
+        if(input===answer){
+            alert("Correct!");
+        }
+        else{
+            alert("Wrong! The correct answer is: "+answer);
+        }
+    }
+    qa("What is red but smells like blue paint?", "red paint");
+    qa("What is 2594+2214", "4808");
+    qa("What is the only word in the dictionary spelled incorrectly?", "incorrectly");
+    </script>
 </body>
 </html>
