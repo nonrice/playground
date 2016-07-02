@@ -42,7 +42,9 @@
             var locate = prompt("please enter a word");
             window.open("http://www.dictionary.com/browse/" + locate + "?s=t");
         }
-
+        else if (txt === "help") {
+            alert("here are all the possible inputs: secret folder, quiz answers, ferrari, quiz, buttonColor, hexadecimal colors, search google, and definition")
+        }
         else {
             if (txt === "") {
                 alert("Please enter some text");
