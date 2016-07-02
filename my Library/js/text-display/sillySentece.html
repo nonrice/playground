@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function sillySentence(amount) {
+        var names = ["Noah", "Olivia", "Emma", "Liam", "Ava", "Sophia", "Isabella", "Mason", "Mia", "Micheal", "Ethan", "Danny", "Finn", "Jacob", "Aiden", "Jeffery", "Alex", "Johnny", "Madison", "James", "Evan", "Joseph", "Anthony", "David", "Christopher", "Jackson", "Harper", "Luke", "Dylan", "Wyatt", "Issac", "Christian", "Ryan", "Elizabeth", "Nathan", "Samuel", "Owen", "Leah", "a slug"];
+        var verb = ["asks for", "jumps on", "rides", "eats", "buys", "twists", "dunks", "blows up", "pops", "freezes", "rips", "kills", "destroys", "runs over", "poisons", "burns", "slaps", "sleeps on", "drives", "quizzes", "insults", "bullies", "makes faces at", "moves", "spray paints", "flies over", "jumps over", "is scared of", "repairs"];
+        var objectOrName = ["airplanes", "bread", "toilets", "wheat", "strawberries", "lollipops", "balloons", "basketballs", "tennis balls", "a shark", "clowns", "spectacles", "lamps", "shades", "computers", "rainbows", "bunnies", "bombs", "books", "bamboo", "cows", "dummies", "helicopters", "race cars", "folders", "papers", "paint", "paint balls", "nerf guns"];
+
+        for (var i = 0; i < amount; i++) {
+            alert(names[Math.floor(Math.random() * names.length)] + " " + verb[Math.floor(Math.random() * verb.length)] + " " + objectOrName[Math.floor(Math.random() * objectOrName.length)]);
+        }
+
+    }
+    sillySentence(30)
+</script>
+</body>
+</html>

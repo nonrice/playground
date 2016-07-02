@@ -3,13 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Pac man</title>
+    <script src="js/pacman.js"></script>
 </head>
-<body bgcolor="black">
-<div class="map"><img
-        src="images/tile3.gif" alt=""><img
-        src="images/tile10.gif" alt=""><img
-        src="images/tile0.gif" alt=""><img
-        src="images/tile12.gif" alt=""></div>
-<script></script>
+<body bgcolor="black" style="display: inline;">
+<div id="maze"></div>
+<div id="pacman"><img src="http://www.masswerk.at/JavaPac/legacy/images/r1.gif" alt=""></div>
+<script>
+    var maze = document.getElementById("maze");
+    var tiles = [
+        ["_", ".", "1", "1", "2", "1"],
+        ["_", ".", "*", "*", "*", "1"]
+    ];
+    drawMaze(maze, tiles);
+</script>
 </body>
 </html>
