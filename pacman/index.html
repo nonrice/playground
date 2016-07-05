@@ -4,18 +4,44 @@
     <meta charset="UTF-8">
     <title>Pac man</title>
     <script src="js/pacman.js"></script>
+    <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
 </head>
-<body bgcolor="black" style="display: inline;">
+<body>
 <h1 style="color:red">Pac-man</h1>
-<div id="maze"></div>
-<div id="pacman"><img src="http://www.masswerk.at/JavaPac/legacy/images/r1.gif" alt=""></div>
+<div class="wrap">
+    <div id="maze"></div>
+</div>
+<img id="pacman" src="images/r1.gif" style="position:absolute; left: 0; top: 0;">
 <script>
-    var maze = document.getElementById("maze");
     var tiles = [
-        ["_", ".", "1", "1", "2", "1"],
-        ["_", ".", "*", "*", "*", "1"]
+        "ahhhhhgxbhhdxehhhhhc",
+        "vp    o      o    pv",
+        "v lhm   lhhm   lhm v",
+        "v     n      n     v",
+        "v n n v ahhc v n n v",
+        "d v o v vxxq v o v b",
+        "x v   v vxxt v   v x",
+        "c bhm o bhhr o lhd a",
+        "v        x         v",
+        "em lc am lm lc am lg",
+        "v   v v      v v   v",
+        "v k o o lhhm o o k v",
+        "vp                pv",
+        "bhhhhhcxahhcxahhhhhd"
     ];
+    var pacmanInfo = {
+        row: 8,
+        column: 9,
+        direction: "top",
+        speed: 10,
+        lives: 3
+    };
+
+    var pacman = document.getElementById("pacman");
+    var maze = document.getElementById("maze");
+
     drawMaze(maze, tiles);
+    drawPacman(pacman, pacmanInfo);
 </script>
 </body>
 </html>

@@ -1,0 +1,13 @@
+.wrap {
+    background: white;
+}
+
+#maze {
+    border: 1px solid silver;
+    width: 540px;
+    margin: auto;
+}
+
+#maze .row {
+    height: 27px;
+}
