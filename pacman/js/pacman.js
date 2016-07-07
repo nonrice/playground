@@ -22,26 +22,26 @@ var tileTypes = {
     "t": "tile18.gif",
     "r": "tile19.gif"
 };
-
-var pacman = {
-    element: undefined,
-    maze: undefined,
-    row: 8,
-    column: 9,
-    direction: "top",
-    speed: 10,
-    lives: 3,
-
-    init: function(e, m) {
-        pacman.element = e;
-        pacman.maze = m;
-    },
-
-    draw: function() {
-        pacman.element.style.left = (pacman.element.column * 27 + maze.offsetLeft) + "px";
-        pacman.element.style.top = (pacman.element.row * 27 + maze.offsetTop) + "px";
-    }
-};
+//
+//var pacman = {
+//    element: undefined,
+//    maze: undefined,
+//    row: 8,
+//    column: 9,
+//    direction: "top",
+//    speed: 10,
+//    lives: 3,
+//
+//    init: function(e, m) {
+//        pacman.element = e;
+//        pacman.maze = m;
+//    },
+//
+//    draw: function() {
+//        pacman.element.style.left = (pacman.element.column * 27 + maze.offsetLeft) + "px";
+//        pacman.element.style.top = (pacman.element.row * 27 + maze.offsetTop) + "px";
+//    }
+//};
 
 
 function drawMaze(element, tiles) {
@@ -99,16 +99,46 @@ function checkKey(e) {
     e = e || window.event;
 
     if (e.keyCode == '38') {
-        move("up");
+        pacmanInfo.direction = "up";
     }
     else if (e.keyCode == '40') {
-        move("down");
+        pacmanInfo.direction = "down";
     }
     else if (e.keyCode == '37') {
-        move("left");
+        pacmanInfo.direction = "left";
     }
     else if (e.keyCode == '39') {
-        move("right");
+        pacmanInfo.direction = "right";
+    }
+    else if (e.keyCode == 65) {
+        pacmanInfo.speed--;
+    }
+    else if (e.keyCode == 68) {
+        pacmanInfo.speed++;
     }
 //}, pacmanInfo.speed*27)
+}
+
+var t = setTimeout(drawPacman2, 100);
+
+function drawPacman2() {
+    if (t != null) {
+        clearTimeout(t);
+    }
+    switch (pacmanInfo.direction) {
+        case "up":
+            pacmanInfo.row--;
+            break;
+        case "down":
+            pacmanInfo.row++;
+            break;
+        case "left":
+            pacmanInfo.column--;
+            break;
+        case "right":
+            pacmanInfo.column++;
+            break;
+    }
+    drawPacman(pacman, pacmanInfo);
+    t = setTimeout(drawPacman2, pacmanInfo.speed * 50)
 }
