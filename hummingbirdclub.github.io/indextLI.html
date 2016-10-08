@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+          integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <style>
+        input {
+            display: inline-block;
+            border: 1px solid silver;
+            border-radius: 3px;
+            width: 300px;
+            height: 35px;
+        }
+
+        div {
+            text-align: center;
+            margin-top: 200px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Login</h1>
+    <input type="password" id="p$wßd">
+    <button onclick="check();" class="btn btn-default">Login</button>
+    <button onclick="go('http://hummingbirdclub.github.io/');" class="btn btn-default">Back</button>
+    <br>
+</div>
+<script>
+    function go(url) {
+        window.location=url;
+    }
+    var check = function () {
+        var ix = document.getElementById("p$wßd").value;
+        if (ix === "jyao") {
+            go("http://hummingbirdclub.github.io/index2.html");
+        }
+        if (ix === "ecui") {
+            go("http://hummingbirdclub.github.io/index2.html");
+        }
+        if (ix === "exue") {
+            go("http://hummingbirdclub.github.io/index2.html");
+        }
+        else {
+            alert("Whoops! something went wrong there!")
+        }
+    };
+</script>
+</body>
+</html>

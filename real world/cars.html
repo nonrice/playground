@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Car identifier</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="plugins/cars./supercars.js"></script>
+</head>
+<body>
+<img src="http://cloudlakes.com/data_images/gallery/pagani-huayra/pagani-huayra-11.jpg" alt="" height="400"
+     style="border-radius: 5px" id="food"><br>
+<input type="text" id="foo" onkeydown="if (event.keyCode == 13)document.getElementById('btn1').click()">
+<button class="btn btn-default" onclick="btnClicked();" id="btn1">go</button>
+<script>
+    var questions = [
+        {
+            "question": "http://....",
+            "choices": [
+                "fasdjf",
+                "ad;fjasd;",
+                "dfasdfasd",
+                "dfasdfasdf"
+            ],
+            "answer": 2
+        },
+    ];
+
+    var count = 0;
+    displayCar(cars[0]);
+    function displayCar(car) {
+        document.getElementById("food").src = car.url;
+        document.getElementById("foo").value = "";
+    }
+    function btnClicked() {
+        var input = document.getElementById("foo").value.toUpperCase();
+        if (cars[count].name == input) {
+            count++;
+            displayCar(cars[count]);
+        }
+    }
+
+</script>
+</body>
+</html>

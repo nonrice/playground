@@ -1,0 +1,96 @@
+<style>
+    .title{
+        margin-left: 20px;
+    }
+
+    .data-image {
+        border-radius: 3px;
+        height: 100px;
+        width: 100px;
+        margin-left: 10px;
+    }
+
+    .data-holder {
+        background-color: #F0F8FF;
+        border-radius: 3px;
+        height: 120px;
+        width: 120px;
+    }
+
+    #about {
+        padding-top: 30px;
+        padding-bottom: 100px;
+        padding-right: 300px;
+        background-color: #F0FF8F;
+    }
+
+    #recommendedBooks {
+        padding-top: 30px;
+        padding-bottom: 100px;
+        padding-right: 300px;
+        background-color: #F3FFAF;
+    }
+
+    #eventSchedule {
+        padding-top: 30px;
+        padding-bottom: 100px;
+        padding-right: 300px;
+        background-color: #F6FFCF;
+    }
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+      integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<nav class="navbar navbar-fixed">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#about">Hummingbird Book Club</a>
+
+        <div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a href="#about">Section 1</a></li>
+                    <li><a href="#recommendedBooks">Section 2</a></li>
+                    <li><a href="#eventSchedule">Section 3</a></li>
+                    <li><a href="indextLI.html">Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" id="about">
+    <h2>About</h2><br>
+
+    <p>The Hummingbird book club is a book club where kids can give book presentations, sometimes talk about a famous
+        person
+        or rarely make something
+        of their own, such as a story or imaginary character. </p>
+</div>
+<div class="container-fluid" id="recommendedBooks">
+    <h2>Recommended Books</h2>
+    <p>In the Hummingbird book club, you do book reports and book reviews. You don't have to always write or type that much, or even if you want, there are some recommended books below.</p>
+    <table border="1px solid">
+        <tr id="rb">
+            <td class="data-holder">
+                <img src="https://books.google.com/books/content/images/frontcover/vpl8B7jp-fsC?fife=w300-rw"
+                     class="data-image" id="Schooled"><p class="title">Schooled</p>
+            </td>
+            <td class="data-holder">
+                <img src="https://books.google.com/books/content/images/frontcover/G6eZBgAAQBAJ?fife=w300-rw"
+                     class="data-image" id="The Nest"><p class="title">The Nest</p>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<div class="container-fluid" id="eventSchedule">
+    <h2>Event Schedule</h2>
+
+    <p>The Event Schedule is disabled to not logged in users for security reasons</p>
+</div>
+<script>
+    function addBook(){
+        var i="<img class='data-image' src='"+document.getElementById("imgurl").value+"' />";
+        var t="<p class='title'>"+document.getElementById("bookname").value+"</p>";
+        document.getElementById("rb").innerHTML+="<td class='data-holder'>"+i+t+"</td>";
+    }
+</script>

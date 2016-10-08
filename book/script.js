@@ -1,4 +1,4 @@
-document.getElementById("pg2").hidden="hidden";
+var page1=
 function page(page){
     var count=1;
 
