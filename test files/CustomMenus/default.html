@@ -8,11 +8,11 @@
 </head>
 <body>
 <div class="container-fluid" onmousedown="mouseDown(event)"><p id="someText">jojo</p></div>
-<div class="container" hidden="hidden" id>
+<div class="container" id="customMenu">
     <div class="input-group">
-        <ul class="nav nav-pills nav-stacked">
-            <li><a onclick="document.getElementById('someText').style.visibility='hidden';">clear</a></li>
-            <li><a onclick="document.getElementById('someText').style.visibility='visible';">reappear</a></li>
+        <ul class="nav nav-pills nav-stacked" style="border: 1px solid #2a68a3; border-radius: 5px">
+            <li><a style="background-color: #eEE" onclick="document.getElementById('someText').style.visibility='hidden';">clear</a></li>
+            <li><a style="background-color: #eEE" onclick="document.getElementById('someText').style.visibility='visible';">reappear</a></li>
         </ul>
     </div>
 </div>
@@ -20,7 +20,7 @@
     function mouseDown(e){
         e = e || window.event;
         if(e.which = 3){
-
+            document.getElementById("customMenu").visibility="visible"
         }
     }
 </script>
